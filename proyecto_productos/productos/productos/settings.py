@@ -75,8 +75,12 @@ WSGI_APPLICATION = "productos.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
+        "ENGINE": "django.db.backends.postgresql",
         "NAME": BASE_DIR / "db.sqlite3",
+        "OPTIONS": {
+            "service": "product_service",
+            "passfile": ".product_passfile"
+        }
     }
 }
 
