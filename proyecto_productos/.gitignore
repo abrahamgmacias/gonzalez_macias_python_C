@@ -1,3 +1,2 @@
 /env
-/productos/productos/.product_passfile
-/productos/productos/.product_service.conf
+/productos/productos/.env
