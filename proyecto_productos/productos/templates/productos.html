@@ -9,13 +9,13 @@
         </tr>
     </thead>
     <tbody>
-        {% for registro in registros %}
+        {% for producto in productos %}
         <tr>
-            <td>{{ registro.nombre }}</td>
-            <td>{{ registro.descripcion }}</td>
-            <td>{{ registro.precio }}</td>
-            <td>{{ registro.fecha_de_registro }}</td>
-            <td>{{ registro.estatus }}</td>
+            <td>{{ producto.nombre }}</td>
+            <td>{{ producto.descripcion }}</td>
+            <td>{{ producto.precio }}</td>
+            <td>{{ producto.fecha_de_registro }}</td>
+            <td>{{ producto.estatus }}</td>
         </tr>
         {% endfor %}
     </tbody>
