@@ -38,12 +38,22 @@
         text-align: center;
         margin-bottom: 20px;
     }
+
+    .empty-message {
+        text-align: center;
+        padding: 20px;
+        background-color: #F7F7F7;
+        color: #333;
+        border-radius: 10px;
+        font-size: 18px;
+    }
 </style>
 
 <div class="title">
-    Tabla de Productos
+    Productos
 </div>
 
+{% if productos %}
 <div class="custom-table-container">
     <div class="table-responsive">
         <table class="table table-striped custom-table text-center">
@@ -70,3 +80,8 @@
         </table>
     </div>
 </div>
+{% else %}
+<div class="empty-message">
+    Aún no hay productos registrados.
+</div>
+{% endif %}
