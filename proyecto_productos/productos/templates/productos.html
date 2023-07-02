@@ -109,5 +109,10 @@
 {% endif %}
 
 <div class="add-product-button">
-    <button type="button" class="btn btn-primary">Agregar producto</button>
+    <button type="button" class="btn btn-primary" onclick="redirectToRegistrar()">Agregar producto</button>
+    <script>
+        function redirectToRegistrar() {
+            window.location.href = "/productos/registrar";
+        }
+    </script>
 </div>
