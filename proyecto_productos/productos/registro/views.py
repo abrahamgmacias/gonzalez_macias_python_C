@@ -2,12 +2,11 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from .forms import registroProductoForm
 from django.template import loader
-from .models import Producto
 from django.utils import timezone
-
+from .models import Producto
 
 # Create your views here.
-def index(request):
+def showProductos(request):
     data = Producto.objects.all()
     template = loader.get_template('productos.html')
     
