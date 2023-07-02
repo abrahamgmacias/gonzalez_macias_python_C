@@ -1,8 +1,10 @@
-from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render, redirect
+from .forms import registroProductoForm
 from django.template import loader
 from .models import Producto
-from .forms import registroProductoForm
+from django.utils import timezone
+
 
 # Create your views here.
 def index(request):
@@ -16,5 +18,20 @@ def index(request):
     )
 
 def setProducto(request):
-    form = registroProductoForm()
+    if request.method == "POST":
+        form = registroProductoForm(request.POST)
+
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.fecha_de_registro = timezone.now()
+            post.save()
+            return redirect('success-producto')
+    
+    else:
+        print("something else")
+        form = registroProductoForm()
+
     return render(request, 'registrarProducto.html', {"form": form})
+
+def successProducto(request):
+    return HttpResponse("Success")
