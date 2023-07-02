@@ -26,12 +26,17 @@ def setProducto(request):
             post.fecha_de_registro = timezone.now()
             post.save()
             return redirect('success-producto')
+
+        else:
+            return redirect('failure-producto')
     
     else:
-        print("something else")
         form = registroProductoForm()
 
     return render(request, 'registrarProducto.html', {"form": form})
 
 def successProducto(request):
-    return HttpResponse("Success")
+    return HttpResponse("El producto ha sido registrado con éxito.")
+
+def errorProducto(request):
+    return HttpResponse("Ha sucedido un error al registrar el producto. Intente de nuevo.")
